@@ -4,6 +4,10 @@ exports.server = (serv) => {
   require("./thrower").checkConfig(settings, serv);
   Discord.login(settings.token);
   Discord.setGuild(settings.guild);
+  
+  Discord.on("ready", ()=>{
+    Discord.setActivity("Minecraft!");
+  })
   Discord.setChannel(settings.channel);
   if (!settings.messageColor) settings.messageColor = "BLUE";
   if (!settings.serverMessage)
