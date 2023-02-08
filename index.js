@@ -5,7 +5,6 @@ exports.server = (serv) => {
   Discord.login(settings.token);
   Discord.setGuild(settings.guild);
   Discord.setChannel(settings.channel);
-  Discord.game(Discord, "Minecraft!");
   if (!settings.messageColor) settings.messageColor = "BLUE";
   if (!settings.serverMessage)
     settings.serverMessage = "§b[Discord] §7{name}§f: §7{message}";
