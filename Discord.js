@@ -20,6 +20,11 @@ exports.broadcast = ({ message }, player) => {
     .setDescription(message);
   c.send(embed);
 };
+exports.setActivity = (cb) =>{
+  client.on("ready", async() => {
+    await client.user.setActivity("Minecraft!", {type: "PLAYING", status: "DND"})
+  })
+}
 exports.setChatHandler = (cb) => {
   client.on("message", (message) => {
     if (message.channel.id === channel && !message.author.bot) {
