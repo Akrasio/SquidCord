@@ -4,9 +4,8 @@ exports.server = (serv) => {
   require("./thrower").checkConfig(settings, serv);
   Discord.login(settings.token);
   Discord.setGuild(settings.guild);
-  
- 
   Discord.setChannel(settings.channel);
+  Discord.game(Discord, "Minecraft!");
   if (!settings.messageColor) settings.messageColor = "BLUE";
   if (!settings.serverMessage)
     settings.serverMessage = "§b[Discord] §7{name}§f: §7{message}";
@@ -20,11 +19,6 @@ exports.server = (serv) => {
     serv.broadcast(msg);
   });
 };
-exports.status = (bot, status, type)=>{
-  bot.on("ready", ()=>{
-    bot.setActivity("Minecraft!");
-  })
-}
 exports.player = (player, serv) => {
   player.on("chat", (message) => {
     Discord.broadcast(message, player);
