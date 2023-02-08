@@ -11,6 +11,7 @@ exports.server = (serv) => {
     settings.serverMessage = "§b[Discord] §7{name}§f: §7{message}";
   let syntax = settings.serverMessage.replace("&", "§");
   Discord.setMessageColor(settings.messageColor);
+  Discord.setActivity("MineCraft!");
   Discord.setChatHandler((message) => {
     let msg;
     msg = syntax.replace("{name}", message.author.tag);
