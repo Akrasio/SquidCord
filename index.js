@@ -5,9 +5,7 @@ exports.server = (serv) => {
   Discord.login(settings.token);
   Discord.setGuild(settings.guild);
   
-  Discord.on("ready", ()=>{
-    Discord.setActivity("Minecraft!");
-  })
+ 
   Discord.setChannel(settings.channel);
   if (!settings.messageColor) settings.messageColor = "BLUE";
   if (!settings.serverMessage)
@@ -22,6 +20,11 @@ exports.server = (serv) => {
     serv.broadcast(msg);
   });
 };
+exports.status = (bot, status, type)=>{
+  bot.on("ready", ()=>{
+    bot.setActivity("Minecraft!");
+  })
+}
 exports.player = (player, serv) => {
   player.on("chat", (message) => {
     Discord.broadcast(message, player);
